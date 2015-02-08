@@ -62,7 +62,7 @@ namespace Fluky.Framework
 
     public float DistributionSloped(float skew, DistributionDirection direction)
     {
-    // the difference in scale is just the same as the max y-value..
+      // the difference in scale is just the same as the max y-value..
       var maxY = skew;
 
       // our curve will go from 0 to max_x.
@@ -104,7 +104,6 @@ namespace Fluky.Framework
       return absValue;
     }
 
-    // Returns random in range [0,1] with linear distribution of given slope.
     private float DistributionLinearWithPositiveSlope(float slope)
     {
       if (Math.Abs(slope) < 0.001f)
@@ -153,7 +152,7 @@ namespace Fluky.Framework
     // The inverse of the curve.
     private float DistributionExponentialRightInverse(float y, float exponent)
     {
-    return Math.Pow(y, 1.0f / exponent).ToFloat();
+      return Math.Pow(y, 1.0f / exponent).ToFloat();
     }
 
     // The integral of the exponent curve.
