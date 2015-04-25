@@ -5,6 +5,12 @@ namespace Fluky.Framework
 {
   public partial class Randomizer
   {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="list"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
     public T Choose<T>(IList<T> list) where T : IWeighted
     {
       if (!list.Any())

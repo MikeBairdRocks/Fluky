@@ -10,7 +10,6 @@ namespace Fluky.Framework
     //string AmPm();
     //string UnixTime();
 
-    //string Color();
     //string Domain();
     //string Email();
     //string HashTag();
@@ -650,5 +649,14 @@ namespace Fluky.Framework
     /// <param name="sum"></param>
     /// <returns></returns>
     string Rpg(string die, bool sum = false);
+
+    /// <summary>
+    /// Return a random color.
+    /// </summary>
+    /// <param name="format">Type of ColorFormat to return</param>
+    /// <param name="casing"></param>
+    /// <param name="grayscale"></param>
+    /// <returns></returns>
+    string Color(ColorFormat format, CasingType casing = CasingType.Lower, bool grayscale = true);
   }
 }
