@@ -41,6 +41,7 @@
     <Compile Include="Core\Models\AgeType.cs" />
     <Compile Include="Core\Models\CasingType.cs" />
     <Compile Include="Core\Constants.cs" />
+    <Compile Include="Core\Models\ColorFormat.cs" />
     <Compile Include="Core\Models\CreditCard.cs" />
     <Compile Include="Core\Models\CreditCardType.cs" />
     <Compile Include="Core\Models\Currency.cs" />
