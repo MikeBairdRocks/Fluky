@@ -7,9 +7,13 @@ namespace Fluky.Framework
 {
   public interface IRandomizer
   {
+<<<<<<< HEAD
     //string AmPm();
     //string UnixTime();
 
+=======
+    //string Color();
+>>>>>>> some minor updates
     //string Domain();
     //string Email();
     //string HashTag();
@@ -651,6 +655,7 @@ namespace Fluky.Framework
     string Rpg(string die, bool sum = false);
 
     /// <summary>
+<<<<<<< HEAD
     /// Return a random color.
     /// </summary>
     /// <param name="format">Type of ColorFormat to return</param>
@@ -658,5 +663,18 @@ namespace Fluky.Framework
     /// <param name="grayscale"></param>
     /// <returns></returns>
     string Color(ColorFormat format, CasingType casing = CasingType.Lower, bool grayscale = true);
+=======
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    string AmPm();
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="minYear"></param>
+    /// <returns></returns>
+    string UnixTime(int? minYear = null);
+>>>>>>> some minor updates
   }
 }

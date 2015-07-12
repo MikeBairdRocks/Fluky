@@ -1,21 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Fluky.Core.Models;
 
 namespace Fluky.Framework
 {
   public partial class Randomizer
   {
-    //public string AmPm()
-    //{
-    //  throw new NotImplementedException();
-    //}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public string AmPm()
+    {
+      return Bool() ? DateTimeFormatInfo.InvariantInfo.AMDesignator : DateTimeFormatInfo.InvariantInfo.PMDesignator;
+    }
 
-    // Hammertime
-    //public string UnixTime()
-    //{
-    //  throw new NotImplementedException();
-    //}
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="minYear"></param>
+    /// <returns></returns>
+    public string UnixTime(int? minYear = null)
+    {
+      var randomDateTime = Date(minYear);
+      var epochTicks = new DateTime(1970, 1, 1).Ticks;
+      var unixTime = ((randomDateTime.Ticks - epochTicks) / TimeSpan.TicksPerSecond);
+
+      return unixTime.ToString();
+    }
 
     /// <summary>
     /// 
@@ -72,7 +85,7 @@ namespace Fluky.Framework
     /// <returns></returns>
     public DateTime Date(int? minYear = null)
     {
-      minYear = minYear.HasValue ? minYear.Value : 1900;
+      minYear = minYear ?? 1900;
       var year = Year(minYear.Value);
       var month = Month();
       var day = Natural(1, DateTime.DaysInMonth(year, month.Numeric));
@@ -135,7 +148,7 @@ namespace Fluky.Framework
     /// <returns></returns>
     public int Year(int min, int? max = null)
     {
-      max = max.HasValue ? max.Value : DateTime.Now.Year;
+      max = max ?? DateTime.Now.Year;
 
       return Natural(min, max.Value);
     }

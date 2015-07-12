@@ -27,7 +27,7 @@ namespace Fluky.Framework
 
     private string Syllable(int? length = null)
     {
-      length = length.HasValue ? length.Value : Natural(2, 3);
+      length = length ?? Natural(2, 3);
       var all = string.Format("{0}{1}", Constants.Consonants, Constants.Vowels);
       var text = "";
       var chr = '\0';
