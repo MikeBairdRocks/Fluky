@@ -1,22 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluky", "src\FLuky\Fluky.csproj", "{2C7FF61F-1040-486D-98CC-07E16123730F}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fluky", "src\Fluky\Fluky.xproj", "{3B6B7815-CB87-416A-B350-6E9112B455B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "src\Tests\Tests.csproj", "{09E17243-E5F0-4F8E-8A6C-4FC68472292A}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fluky.Tests", "src\Fluky.Tests\Fluky.Tests.xproj", "{B6621D43-E103-4475-98CC-15A72933B9D9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8E2171B8-7FA2-42DE-B306-B15E33C8375B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3285FAEC-92EE-4BBB-B9C4-19A07CB43E6E}"
 	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{342C7CB7-EB23-4C26-801D-1DFE04B0C3FF}"
-	ProjectSection(SolutionItems) = preProject
-		SharedAssemblyInfo.cs = SharedAssemblyInfo.cs
+		global.json = global.json
 	EndProjectSection
 EndProject
 Global
@@ -25,14 +18,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2C7FF61F-1040-486D-98CC-07E16123730F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2C7FF61F-1040-486D-98CC-07E16123730F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2C7FF61F-1040-486D-98CC-07E16123730F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2C7FF61F-1040-486D-98CC-07E16123730F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{09E17243-E5F0-4F8E-8A6C-4FC68472292A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{09E17243-E5F0-4F8E-8A6C-4FC68472292A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{09E17243-E5F0-4F8E-8A6C-4FC68472292A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{09E17243-E5F0-4F8E-8A6C-4FC68472292A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B6B7815-CB87-416A-B350-6E9112B455B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B6B7815-CB87-416A-B350-6E9112B455B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B6B7815-CB87-416A-B350-6E9112B455B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B6B7815-CB87-416A-B350-6E9112B455B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6621D43-E103-4475-98CC-15A72933B9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6621D43-E103-4475-98CC-15A72933B9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6621D43-E103-4475-98CC-15A72933B9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6621D43-E103-4475-98CC-15A72933B9D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
