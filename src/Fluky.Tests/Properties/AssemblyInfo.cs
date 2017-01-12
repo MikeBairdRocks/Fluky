@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Fluky")]
+[assembly: AssemblyProduct("Fluky.Tests")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,5 +16,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3b6b7815-cb87-416a-b350-6e9112b455b8")]
-[assembly: InternalsVisibleTo("Fluky.Tests")]
+[assembly: Guid("b6621d43-e103-4475-98cc-15a72933b9d9")]
