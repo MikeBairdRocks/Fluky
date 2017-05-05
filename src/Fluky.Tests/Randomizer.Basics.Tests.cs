@@ -1,26 +1,22 @@
 ﻿using System;
 using System.Globalization;
-using Fluky.Core;
-using Fluky.Core.Extensions;
-using Fluky.Core.Models;
-using Fluky.Framework;
-using NUnit.Framework;
+using Fluky.Types;
 using Shouldly;
+using Xunit;
+using Fluky.Extensions;
 
-namespace Fluky.Tests.Framework
+namespace Fluky.Tests
 {
-  [TestFixture]
   public class BasicsTests
   {
-    private IRandomizer _sut;
+    private readonly IRandomizer _sut;
 
-    [SetUp]
-    public void SetUp()
+    public BasicsTests()
     {
-      _sut = new Fluky.Framework.Randomizer();
+      _sut = new Randomizer();
     }
 
-    [Test]
+    [Fact]
     public void Bool_ShouldBeTrue()
     {
       // Arrange
@@ -32,7 +28,7 @@ namespace Fluky.Tests.Framework
       result.ShouldBe(true);
     }
 
-    [Test]
+    [Fact]
     public void Bool_ShouldBeFalse()
     {
       // Arrange
@@ -44,7 +40,7 @@ namespace Fluky.Tests.Framework
       result.ShouldBe(false);
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsAlphaNumeric()
     {
       // Arrange
@@ -53,11 +49,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character();
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldNotBeOneOf("$%^&*()#@!".ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsSymbols()
     {
       // Arrange
@@ -66,11 +62,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character(true, false, string.Empty);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldBeOneOf(Constants.CharSymbols.ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsAlpha()
     {
       // Arrange
@@ -79,11 +75,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character(false, true, string.Empty);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldBeOneOf((Constants.CharsLower + Constants.CharsUpper).ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsAlphaWithUpper()
     {
       // Arrange
@@ -92,11 +88,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character(false, true, string.Empty, CasingType.Upper);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldBeOneOf((Constants.CharsUpper).ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsAlphaWithLower()
     {
       // Arrange
@@ -105,11 +101,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character(false, true, string.Empty, CasingType.Lower);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldBeOneOf((Constants.CharsLower).ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Character_ReturnsAny()
     {
       // Arrange
@@ -118,11 +114,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Character(false, false, string.Empty);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result.ToString(CultureInfo.InvariantCulture));
+      Assert.NotNull(result.ToString());
       result.ShouldBeOneOf((Constants.CharsLower + Constants.CharsUpper + Constants.Numbers + Constants.CharSymbols).ToCharArray());
     }
 
-    [Test]
+    [Fact]
     public void Decimal_ShouldBeUnique()
     {
       // Arrange
@@ -135,12 +131,12 @@ namespace Fluky.Tests.Framework
       var result2 = _sut.Decimal(min, max, fix);
 
       // Assert
-      Assert.IsNotNull(result1);
-      Assert.IsNotNull(result2);
+      Assert.NotNull(result1);
+      Assert.NotNull(result2);
       result1.ShouldNotBe(result2);
     }
 
-    [Test]
+    [Fact]
     public void Decimal_ShouldBeInRange()
     {
       // Arrange
@@ -149,11 +145,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Decimal();
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.ShouldBeInRange(int.MinValue, int.MaxValue);
     }
 
-    [Test]
+    [Fact]
     public void Decimal_ShouldBeInSpecifiedRange()
     {
       // Arrange
@@ -164,11 +160,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Decimal(min, max);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 
-    [Test]
+    [Fact]
     public void Decimal_ShouldHaveMinPrecision()
     {
       // Arrange
@@ -180,11 +176,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Decimal(min, max, fix);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.ToString(CultureInfo.InvariantCulture).GetDecimalLength().ShouldBe(fix);
    }
 
-    [Test]
+    [Fact]
     public void DecimalString_ShouldBeUnique()
     {
       // Arrange
@@ -194,12 +190,12 @@ namespace Fluky.Tests.Framework
       var result2 = _sut.DecimalString();
 
       // Assert
-      Assert.IsNotNullOrEmpty(result1);
-      Assert.IsNotNullOrEmpty(result2);
+      Assert.NotNull(result1);
+      Assert.NotNull(result2);
       result1.ShouldNotBe(result2);
     }
 
-    [Test]
+    [Fact]
     public void DecimalString_ShouldHaveCorrectPrecision()
     {
       // Arrange
@@ -211,12 +207,12 @@ namespace Fluky.Tests.Framework
       var result = _sut.DecimalString(min, max, fix);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       var split = result.Split('.');
       split[1].Length.ShouldBe(fix);
     }
 
-    [Test]
+    [Fact]
     public void Integer_ShouldReturnCorrectRange()
     {
       // Arrange
@@ -227,11 +223,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Integer(min, max);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 
-    [Test]
+    [Fact]
     public void Natural_ShouldReturnCorrectRange()
     {
       // Arrange
@@ -242,11 +238,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.Natural(min, max);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 
-    [Test]
+    [Fact]
     public void Natural_ShouldThrowIfLessThanZero()
     {
       // Arrange
@@ -257,7 +253,7 @@ namespace Fluky.Tests.Framework
       Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Natural(min, max));
     }
 
-    [Test]
+    [Fact]
     public void Natural_ShouldThrowIfMinIsGreaterThanMax()
     {
       // Arrange
@@ -268,7 +264,7 @@ namespace Fluky.Tests.Framework
       Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Natural(min, max));
     }
 
-    [Test]
+    [Fact]
     public void String_ReturnsValue()
     {
       // Arrange
@@ -277,10 +273,10 @@ namespace Fluky.Tests.Framework
       var result = _sut.String();
 
       // Assert
-      Assert.IsNotNullOrEmpty(result);
+      Assert.NotNull(result);
     }
 
-    [Test]
+    [Fact]
     public void String_ReturnsCorrectLength()
     {
       // Arrange
@@ -290,11 +286,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.String(length);
 
       // Assert
-      Assert.IsNotNullOrEmpty(result);
+      Assert.NotNull(result);
       result.Length.ShouldBe(length);
     }
 
-    [Test]
+    [Fact]
     public void String_ShouldThrowIfLengthIsZero()
     {
       // Arrange
@@ -304,7 +300,7 @@ namespace Fluky.Tests.Framework
       Assert.Throws<ArgumentOutOfRangeException>(() => _sut.String(length));
     }
 
-    [Test]
+    [Fact]
     public void String_ShouldThrowIfLengthIsLessThanZero()
     {
       // Arrange

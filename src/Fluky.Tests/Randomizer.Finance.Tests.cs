@@ -1,24 +1,20 @@
 ﻿using System.Linq;
-using Fluky.Core.Models;
-using Fluky.Framework;
-using NUnit.Framework;
+using Fluky.Types;
 using Shouldly;
-using Randomizer = Fluky.Framework.Randomizer;
+using Xunit;
 
-namespace Fluky.Tests.Framework
+namespace Fluky.Tests
 {
-  [TestFixture]
   public class FinanceTests
   {
-    private IRandomizer _sut;
+    private readonly IRandomizer _sut;
 
-    [SetUp]
-    public void SetUp()
+    public FinanceTests()
     {
       _sut = new Randomizer();
     }
 
-    [Test]
+    [Fact]
     public void CreditCardNumber_ShouldReturnValidNumber()
     {
       // Arrange
@@ -27,20 +23,20 @@ namespace Fluky.Tests.Framework
       var result = _sut.CreditCardNumber();
 
       // Assert
-      Assert.IsNotNullOrEmpty(result);
+      Assert.NotNull(result);
       result.Split('-').Count().ShouldBeInRange(1, 3);
     }
 
-    [TestCase(CreditCardType.AmericanExpress)]
-    [TestCase(CreditCardType.Bankcard)]
-    [TestCase(CreditCardType.ChinaUnionPay)]
-    [TestCase(CreditCardType.ChinaUnionPay)]
-    [TestCase(CreditCardType.DinersClubCarteBlanche)]
-    [TestCase(CreditCardType.DinersClubInternational)]
-    [TestCase(CreditCardType.DinersClubUnitedStatesCanada)]
-    [TestCase(CreditCardType.DinersClubenRoute)]
-    [TestCase(CreditCardType.Discover)]
-    [TestCase(CreditCardType.InstaPayment)]
+    [InlineData(CreditCardType.AmericanExpress)]
+    [InlineData(CreditCardType.Bankcard)]
+    [InlineData(CreditCardType.ChinaUnionPay)]
+    [InlineData(CreditCardType.ChinaUnionPay)]
+    [InlineData(CreditCardType.DinersClubCarteBlanche)]
+    [InlineData(CreditCardType.DinersClubInternational)]
+    [InlineData(CreditCardType.DinersClubUnitedStatesCanada)]
+    [InlineData(CreditCardType.DinersClubenRoute)]
+    [InlineData(CreditCardType.Discover)]
+    [InlineData(CreditCardType.InstaPayment)]
     public void CreditCard_ShouldReturnValidNumber(CreditCardType type)
     {
       // Arrange
@@ -49,11 +45,11 @@ namespace Fluky.Tests.Framework
       var result = _sut.CreditCard(type);
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
       result.Type.ShouldBe(type);
     }
 
-    [Test]
+    [Fact]
     public void Currency()
     {
       // Arrange
@@ -62,7 +58,7 @@ namespace Fluky.Tests.Framework
       var result = _sut.Currency();
 
       // Assert
-      Assert.IsNotNull(result);
+      Assert.NotNull(result);
     }
   }
 }
