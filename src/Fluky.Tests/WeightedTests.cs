@@ -85,8 +85,8 @@ namespace Fluky.Tests
         Weight = weight;
       }
 
-      public string Name { get; set; }
-      public string PlayerType { get; set; }
+      public string Name { get; }
+      public string PlayerType { get; }
       public int Weight { get; set; }
       public int Position { get; set; }
     }

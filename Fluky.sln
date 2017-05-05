@@ -1,16 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fluky", "src\Fluky\Fluky.xproj", "{3B6B7815-CB87-416A-B350-6E9112B455B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluky", "src\Fluky\Fluky.csproj", "{3B6B7815-CB87-416A-B350-6E9112B455B8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Fluky.Tests", "src\Fluky.Tests\Fluky.Tests.xproj", "{B6621D43-E103-4475-98CC-15A72933B9D9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3285FAEC-92EE-4BBB-B9C4-19A07CB43E6E}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluky.Tests", "src\Fluky.Tests\Fluky.Tests.csproj", "{B6621D43-E103-4475-98CC-15A72933B9D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

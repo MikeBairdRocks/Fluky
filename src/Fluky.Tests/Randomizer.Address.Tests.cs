@@ -10,7 +10,7 @@ namespace Fluky.Tests
 {
   public class RandomizerAddressTests
   {
-    private IRandomizer _sut;
+    private readonly IRandomizer _sut;
 
     public RandomizerAddressTests()
     {
