@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>A framework for generating random data of all types like names, numbers, etc.</Description>
+    <Description>Fluky is a framework to generate random strings, numbers, names, etc. to help reduce some of the monotony particularly while writing automated tests or anywhere else you need anything random data.</Description>
     <AssemblyTitle>Fluky</AssemblyTitle>
     <VersionPrefix>2.0.0</VersionPrefix>
     <Authors>Michael Baird</Authors>
@@ -11,5 +11,13 @@
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git@github.com:EmphaticFist/Fluky.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/EmphaticFist/Fluky</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/EmphaticFist/Fluky/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageTags>fluky, random</PackageTags>
+    <PackageIconUrl>https://emphaticfist.blob.core.windows.net/images/fluky.png</PackageIconUrl>
+    <PackageReleaseNotes>Updated to .Net Standard 1.6</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

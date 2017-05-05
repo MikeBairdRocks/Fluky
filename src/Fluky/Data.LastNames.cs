@@ -521,7 +521,7 @@ namespace Fluky
         };
       }
 
-      set { _lastNames = value; }
+      set => _lastNames = value;
     }
   }
 }

@@ -531,7 +531,7 @@ namespace Fluky
 
         return names;
       }
-      set { _firstNames = value; }
+      set => _firstNames = value;
     }
   }
 }

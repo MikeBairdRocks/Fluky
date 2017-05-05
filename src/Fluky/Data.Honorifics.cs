@@ -44,7 +44,7 @@ namespace Fluky
           new Honorific("Elder", "Elder", GenderType.Male, HonorificType.Religious),
         };
       }
-      set { _honorifics = value; }
+      set => _honorifics = value;
     }
   }
 }
