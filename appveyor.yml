@@ -6,8 +6,8 @@ branches:
 
 init:
   - cmd: git config --global core.autocrlf true
-  - ps: $env:customnugetversion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH" }
-  - ps: Update-AppveyorBuild -Version $env:customnugetversion
+  - ps: $env:nugetversion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH" }
+  - ps: Update-AppveyorBuild -Version $env:nugetversion
 
 assembly_info:
   patch: true
@@ -30,7 +30,7 @@ before_build:
   
 build_script:
   # output will be in ./src/bin/debug/netstandard1.6/publish
-  - cmd: dotnet pack ./src/Fluky/Fluky.csproj -o ../../artifacts --include-symbols  /p:Version="{version}"
+  - cmd: dotnet pack ./src/Fluky/Fluky.csproj -o ../../artifacts --include-symbols  /p:Version="{nugetversion}"
 after_build:
   # For once the build has completed
   
