@@ -8,6 +8,11 @@ init:
   - cmd: git config --global core.autocrlf true
   - ps: $env:nugetversion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$env:APPVEYOR_REPO_BRANCH" }
   - ps: Update-AppveyorBuild -Version $env:nugetversion
+  - ps: $xmlPath = "$env:appveyor_build_folder\MyProject\MyProject.csproj"
+        $xml = [xml](get-content $xmlPath)
+        $propertyGroup = $xml.Project.PropertyGroup | Where { $_.Version}
+        $propertyGroup.Version = $env:nugetversion
+        $xml.Save($xmlPath)
 
 assembly_info:
   patch: true
