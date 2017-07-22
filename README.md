@@ -6,12 +6,6 @@ Fluky is a framework to generate random strings, numbers, names, etc. to help re
 [![NuGet](https://img.shields.io/nuget/v/Fluky.svg)]()
 [![NuGet](https://img.shields.io/nuget/dt/Fluky.svg)]()
 
-Contribution guidelines
------
-* Writing tests
-* Code review
-* Other guidelines
-
 Features
 -----
 Fluky is a [NuGet library](https://www.nuget.org/packages/Fluky) that you can add in to your project that will allow you to generate random things using the `Randomizer` class.
