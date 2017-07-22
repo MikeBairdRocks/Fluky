@@ -15,7 +15,7 @@ before_build:
   - cmd: dotnet restore ./src/Fluky/Fluky.csproj --verbosity m
 build_script:
   # output will be in ./src/bin/debug/netstandard1.6/publish
-  - cmd: dotnet publish ./src/Fluky/Fluky.csproj -o ./artifacts/
+  - cmd: dotnet pack ./src/Fluky/Fluky.csproj -o ../../artifacts --include-symbols
 after_build:
   # For once the build has completed
 artifacts:
