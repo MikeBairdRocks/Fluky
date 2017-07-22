@@ -30,8 +30,8 @@ before_build:
   
 build_script:
   # output will be in ./src/bin/debug/netstandard1.6/publish
-  - cmd: echo %version%
-  - cmd: dotnet pack ./src/Fluky/Fluky.csproj -o ../../artifacts --include-symbols  /p:Version=%version%
+  - cmd: %version%
+  - cmd: dotnet pack ./src/Fluky/Fluky.csproj -o ../../artifacts --include-symbols  /p:Version="{version}"
 after_build:
   # For once the build has completed
   
