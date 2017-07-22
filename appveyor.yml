@@ -20,7 +20,7 @@ after_build:
   # For once the build has completed
 artifacts:
  - path: '\artifacts\'
-   name: NugetPkg
+   name: Nuget
 clone_depth: 1
 test_script:
   # restore packages for our unit tests
@@ -30,4 +30,8 @@ test_script:
   - cmd: dotnet test
 on_finish :
   # any cleanup in here
-deploy: off
+deploy:
+- provider: NuGet
+  api_key:
+    secure: cACylPTv30jFnQzzCUvDPOpUPdEjvLEYvdG2ueENaLbBEjgoOzHPnnA0NAlBpMnZ
+    artifact: /.*\.nupkg/
