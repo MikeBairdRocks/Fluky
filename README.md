@@ -3,6 +3,8 @@ Fluky - A Random Framework
 Fluky is a framework to generate random strings, numbers, names, etc. to help reduce some of the monotony particularly while writing automated tests or anywhere else you need anything random data.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0e1479awo8gmhrfx?svg=true)](https://ci.appveyor.com/project/michaeljbaird/fluky)
+[![NuGet](https://img.shields.io/nuget/v/Fluky.svg)]()
+[![NuGet](https://img.shields.io/nuget/dt/Fluky.svg)]()
 
 Contribution guidelines
 -----
