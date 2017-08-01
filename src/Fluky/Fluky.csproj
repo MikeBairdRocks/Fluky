@@ -7,11 +7,7 @@
     <AssemblyName>Fluky</AssemblyName>
     <PackageId>Fluky</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-<<<<<<< HEAD
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-=======
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
->>>>>>> master
     <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
@@ -22,10 +18,6 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageTags>fluky, random</PackageTags>
     <PackageIconUrl>https://emphaticfist.blob.core.windows.net/images/fluky.png</PackageIconUrl>
-<<<<<<< HEAD
-    <PackageReleaseNotes>Updated to .Net Standard 1.6</PackageReleaseNotes>
-=======
->>>>>>> master
     <Version>2.0.48.0</Version>
     <AssemblyVersion>2.0.48.0</AssemblyVersion>
     <FileVersion>2.0.48.0</FileVersion>
