@@ -12,12 +12,12 @@
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git@github.com:EmphaticFist/Fluky.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/EmphaticFist/Fluky</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/EmphaticFist/Fluky/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>git@github.com:michaeljbaird/Fluky.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/michaeljbaird/Fluky</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/michaeljbaird/Fluky/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageTags>fluky, random</PackageTags>
-    <PackageIconUrl>https://emphaticfist.blob.core.windows.net/images/fluky.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/michaeljbaird/Fluky/master/media/fluky-icon.png</PackageIconUrl>
     <Version>2.0.48.0</Version>
     <AssemblyVersion>2.0.48.0</AssemblyVersion>
     <FileVersion>2.0.48.0</FileVersion>
