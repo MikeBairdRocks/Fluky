@@ -37,7 +37,7 @@ namespace Fluky
           new Province("Yukon", "YT")
         };
       }
-      set { _provinces = value; }
+      set => _provinces = value;
     }
   }
 }

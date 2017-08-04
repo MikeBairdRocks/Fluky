@@ -1,4 +1,5 @@
-﻿namespace Fluky.Types
+﻿// ReSharper disable InconsistentNaming
+namespace Fluky.Types
 {
   public enum CurrencyCodeType
   {

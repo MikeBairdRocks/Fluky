@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Text.RegularExpressions;
 using Shouldly;
 using Xunit;
@@ -28,7 +27,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var sections = result.Split(' ');
-      Assert.Equal(3, sections.Count());
+      Assert.Equal(3, sections.Length);
       sections[2].Length.ShouldBeLessThanOrEqualTo(4);
     }
 
@@ -43,7 +42,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var sections = result.Split(' ');
-      Assert.Equal(3, sections.Count());
+      Assert.Equal(3, sections.Length);
       sections[2].Length.ShouldBeGreaterThanOrEqualTo(3);
     }
 
@@ -159,7 +158,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var splitValues = result.Replace(",", "").Split(' ');
-      Assert.Equal(3, splitValues.Count());
+      Assert.Equal(3, splitValues.Length);
       var latitude = float.Parse(splitValues[0]);
       var longitude = float.Parse(splitValues[1]);
       var altitude = float.Parse(splitValues[2]);
@@ -180,7 +179,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var splitValues = result.Replace(",", "").Split(' ');
-      Assert.Equal(2, splitValues.Count());
+      Assert.Equal(2, splitValues.Length);
       var latitude = float.Parse(splitValues[0]);
       var longitude = float.Parse(splitValues[1]);
       latitude.ShouldBeInRange(Constants.MinLatitude, Constants.MaxLatitude);
@@ -263,7 +262,7 @@ namespace Fluky.Tests
       Assert.NotNull(result);
       result.Length.ShouldBe(7);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
     }
 
     [Fact]
@@ -291,7 +290,7 @@ namespace Fluky.Tests
       Assert.NotNull(result);
       result.Length.ShouldBe(10);
       var split = result.Split('-');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
     }
 
     [Fact]
@@ -420,7 +419,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
       split[1].Length.ShouldBeLessThanOrEqualTo(4);
     }
 
@@ -435,7 +434,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
       split[1].Length.ShouldBeGreaterThanOrEqualTo(3);
     }
   }

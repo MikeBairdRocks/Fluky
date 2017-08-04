@@ -23,7 +23,7 @@ namespace Fluky
           new State("Armed Forces the Americas", "AA")
         };
       }
-      set { _armedForces = value; }
+      set => _armedForces = value;
     }
   }
 }

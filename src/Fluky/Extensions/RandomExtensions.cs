@@ -13,13 +13,10 @@ namespace Fluky.Extensions
 
     public static int NextInt32(this Random rg)
     {
-      unchecked
-      {
-        var firstBits = rg.Next(0, 1 << 4) << 28;
-        var lastBits = rg.Next(0, 1 << 28);
+      var firstBits = rg.Next(0, 1 << 4) << 28;
+      var lastBits = rg.Next(0, 1 << 28);
 
-        return firstBits | lastBits;
-      }
+      return firstBits | lastBits;
     }
   }
 }

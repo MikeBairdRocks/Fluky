@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Shouldly;
+﻿using Shouldly;
 using Xunit;
 
 namespace Fluky.Tests
@@ -22,7 +21,7 @@ namespace Fluky.Tests
       var result = _sut.Paragraph();
 
       // Assert
-      result.Split('.').Count().ShouldBeGreaterThanOrEqualTo(4);
+      result.Split('.').Length.ShouldBeGreaterThanOrEqualTo(4);
     }
   }
 }

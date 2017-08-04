@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace Fluky
 {
@@ -15,9 +15,9 @@ namespace Fluky
       Numeric = numeric;
     }
 
-    public string Name { get; private set; }
-    public string ShortName { get; private set; }
-    public int Numeric { get; private set; }
+    public string Name { get; }
+    public string ShortName { get; }
+    public int Numeric { get; }
 
     public bool Equals(Month other)
     {

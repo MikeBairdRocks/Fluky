@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using Fluky.Extensions;
 
 namespace Fluky
@@ -13,7 +12,7 @@ namespace Fluky
     /// <returns></returns>
     public string Paragraph(int? sentences = null)
     {
-      sentences = sentences.HasValue ? sentences.Value : Natural(3, 7);
+      sentences = sentences ?? Natural(3, 7);
       var sentenceList = new List<string>();
 
       for (var i = 0; i < sentences; i++)
@@ -58,15 +57,14 @@ namespace Fluky
 
     private string Sentence(int? words = null)
     {
-      words = words.HasValue ? words : Natural(12, 18);
+      words = words ?? Natural(12, 18);
       var wordList = new List<string>();
-      var text = "";
       for (var i = 0; i < words; i++)
       {
         wordList.Add(Word());
       }
 
-      text = string.Join(" ", wordList.ToArray());
+      var text = string.Join(" ", wordList.ToArray());
 
       // Capitalize first letter of sentence, add period at end
       text = string.Format("{0}{1}", text.Capitalize(), '.');
@@ -76,7 +74,7 @@ namespace Fluky
 
     private string Word(int? length = null, int? syllables = null)
     {
-      syllables = syllables.HasValue ? syllables : Natural(1, 3);
+      syllables = syllables ?? Natural(1, 3);
       var text = "";
 
       if (length.HasValue)

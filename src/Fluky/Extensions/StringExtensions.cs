@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 
 namespace Fluky.Extensions
@@ -20,7 +20,7 @@ namespace Fluky.Extensions
       if (!input.Contains(".") && !input.Contains(","))
         return decimalLength;
 
-      var separator = new char[] { '.', ',' };
+      var separator = new[] { '.', ',' };
       var tempstring = input.Split(separator);
       decimalLength = tempstring[1].Length;
 

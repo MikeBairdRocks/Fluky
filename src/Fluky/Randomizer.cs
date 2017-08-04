@@ -56,7 +56,7 @@ namespace Fluky
     {
       lock (SyncLock)
       {
-        var seed = _seed.HasValue ? _seed.Value : System.Guid.NewGuid().GetHashCode();
+        var seed = _seed ?? System.Guid.NewGuid().GetHashCode();
         var internalRandom = new Random(seed);
 
         return internalRandom;
@@ -73,7 +73,7 @@ namespace Fluky
       }
     }
 
-    private string Capitalize(string value)
+    private static string Capitalize(string value)
     {
       value = string.Format("{0}{1}", value[0].ToString().ToUpper(), value.Substring(1));
 
@@ -86,7 +86,7 @@ namespace Fluky
       return numberString.PadLeft(width, pad);
     }
 
-    private T Pick<T>(List<T> list)
+    private static T Pick<T>(IList<T> list)
     {
       return list.Pick();
     }

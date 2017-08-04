@@ -72,7 +72,7 @@ namespace Fluky
         };
       }
 
-      set { _states = value; }
+      set => _states = value;
     }
   }
 }

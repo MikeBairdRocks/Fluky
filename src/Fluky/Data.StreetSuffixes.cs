@@ -55,7 +55,7 @@ namespace Fluky
         };
       }
 
-      set { _streetSuffixes = value; }
+      set => _streetSuffixes = value;
     }
   }
 }

@@ -138,7 +138,7 @@ namespace Fluky
       var maxCdf = ExponentialRightCdf(1.0f, exponent);
 
       var u = Float(0.0f, maxCdf);
-      var xVal = EponentialRightInverseCDF(u, exponent);
+      var xVal = EponentialRightInverseCdf(u, exponent);
 
       if (direction == DistributionDirection.Left)
         xVal = 1.0f - xVal;
@@ -164,7 +164,7 @@ namespace Fluky
     }
 
     // The inverse of the integral of the exponent curve.
-    private static float EponentialRightInverseCDF(float x, float exponent)
+    private static float EponentialRightInverseCdf(float x, float exponent)
     {
       var integralExp = exponent + 1.0f;
       return Math.Pow(integralExp * x, 1.0f / integralExp).ToFloat();
@@ -173,7 +173,7 @@ namespace Fluky
     /// <summary>
     /// The inverse of the sec^2 function.
     /// </summary>
-    /// <param name="y">The y coordinate. if y < 1, returns NaN. </param>
+    /// <param name="y">The y coordinate. if y less than 1, returns NaN. </param>
     private float Inverse_Sec_Sqrd(float y)
     {
       // Note: arcsec(x) = arccos(1/x)

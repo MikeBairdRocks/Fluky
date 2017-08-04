@@ -19,7 +19,7 @@ namespace Fluky
     /// <returns></returns>
     public string Color(ColorFormat format, CasingType casing = CasingType.Lower, bool grayscale = true)
     {
-      var colorValue = "";
+      string colorValue;
       switch (format)
       {
         case ColorFormat.Hex:
@@ -55,7 +55,7 @@ namespace Fluky
             var g = Natural(255);
             var b = Natural(255);
             var alpha = Float(0, 1);
-            colorValue = string.Format("rgba({0}, {1}, {2}, {3})", r, g, b, alpha);
+            colorValue = $"rgba({r}, {g}, {b}, {alpha})";
           }
           break;
         case ColorFormat.ConstantHex:

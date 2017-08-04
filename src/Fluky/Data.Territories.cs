@@ -28,7 +28,7 @@ namespace Fluky
         };
       }
 
-      set { _territories = value; }
+      set => _territories = value;
     }
   }
 }

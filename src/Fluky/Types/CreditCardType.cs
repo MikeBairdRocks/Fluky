@@ -11,7 +11,7 @@
     DinersClubUnitedStatesCanada,
     Discover,
     InstaPayment,
-    JCB,
+    Jcb,
     Laser,
     Maestro,
     Mastercard,

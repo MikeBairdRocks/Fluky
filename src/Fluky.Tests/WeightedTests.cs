@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Fluky.Types;
 using Shouldly;
 using Xunit;
 
@@ -57,8 +56,8 @@ namespace Fluky.Tests
       var quarterBacks = results.Where(x => x.PlayerType == "Quarterback").ToList();
       var runnigBacks = results.Where(x => x.PlayerType == "Runningback").ToList();
       var kickers = results.Where(x => x.PlayerType == "Kicker").ToList();
-      quarterBacks.Count().ShouldBeGreaterThanOrEqualTo(runnigBacks.Count());
-      runnigBacks.Count().ShouldBeGreaterThanOrEqualTo(kickers.Count());
+      quarterBacks.Count.ShouldBeGreaterThanOrEqualTo(runnigBacks.Count);
+      runnigBacks.Count.ShouldBeGreaterThanOrEqualTo(kickers.Count);
 
       var topTenQuarterbacks = quarterBacks.Count(x => x.Position <= 10);
       var topTenRunningbacks = runnigBacks.Count(x => x.Position <= 10);
@@ -70,22 +69,19 @@ namespace Fluky.Tests
     private Player GeneratePlayer(int minWeight, int maxWeight, string type)
     {
       var weight = _sut.Natural(minWeight, maxWeight);
-      var name = _sut.FirstName(GenderType.Male);
-      var player = new Player(name, type, weight);
+      var player = new Player(type, weight);
 
       return player;
     }
 
     private class Player : IWeighted
     {
-      public Player(string name, string playerType, int weight)
+      public Player(string playerType, int weight)
       {
-        Name = name;
         PlayerType = playerType;
         Weight = weight;
       }
 
-      public string Name { get; }
       public string PlayerType { get; }
       public int Weight { get; set; }
       public int Position { get; set; }

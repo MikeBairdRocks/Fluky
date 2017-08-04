@@ -17,10 +17,10 @@ namespace Fluky
       Type = type;
     }
 
-    public string Name { get; set; }
-    public string Abbreviation { get; set; }
-    public GenderType GenderType { get; set; }
-    public HonorificType Type { get; set; }
+    public string Name { get; }
+    public string Abbreviation { get; }
+    public GenderType GenderType { get; }
+    public HonorificType Type { get; }
 
     public bool Equals(Honorific other)
     {

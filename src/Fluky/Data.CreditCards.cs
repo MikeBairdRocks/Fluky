@@ -28,7 +28,7 @@ namespace Fluky
           new CreditCard("Diners Club United States & Canada", "dcusc", CreditCardType.DinersClubUnitedStatesCanada, "54", 16),
           new CreditCard("Discover Card", "discover", CreditCardType.Discover, "6011", 16),
           new CreditCard("InstaPayment", "instapay", CreditCardType.InstaPayment, "637", 16),
-          new CreditCard("JCB", "jcb", CreditCardType.JCB, "3528", 16),
+          new CreditCard("JCB", "jcb", CreditCardType.Jcb, "3528", 16),
           new CreditCard("Laser", "laser", CreditCardType.Laser, "6304", 16),
           new CreditCard("Maestro", "maestro", CreditCardType.Maestro, "5018", 16),
           new CreditCard("Mastercard", "mc", CreditCardType.Mastercard, "51", 16),
@@ -38,7 +38,7 @@ namespace Fluky
           new CreditCard("Visa Electron", "electron", CreditCardType.VisaElectron, "4026", 16)
         };
       }
-      set { _creditCards = value; }
+      set => _creditCards = value;
     }
   }
 }

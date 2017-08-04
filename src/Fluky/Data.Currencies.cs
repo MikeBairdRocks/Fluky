@@ -184,7 +184,7 @@ namespace Fluky
           new Currency(CurrencyCodeType.ZWD, "Zimbabwe Dollar")
         };
       }
-      set { _currencies = value; }
+      set => _currencies = value;
     }
   }
 }

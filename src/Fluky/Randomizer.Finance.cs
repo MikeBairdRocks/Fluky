@@ -84,14 +84,7 @@ namespace Fluky
       int month;
 
       // If the year is this year, need to ensure month is greater than the current month or this expiration will not be valid
-      if (year == (DateTime.UtcNow.Year))
-      {
-        month = ExpirationMonth(true);
-      }
-      else
-      {
-        month = ExpirationMonth(false);
-      }
+      month = ExpirationMonth(year == (DateTime.UtcNow.Year));
 
       return string.Format("{0}/{1}", month, year);
     }

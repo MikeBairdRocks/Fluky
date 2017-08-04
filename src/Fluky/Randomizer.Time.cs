@@ -105,16 +105,8 @@ namespace Fluky
     /// <returns></returns>
     public string Date(bool american)
     {
-      string dateString;
       var date = Date();
-      if (american)
-      {
-        dateString = string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
-      }
-      else
-      {
-        dateString = string.Format("{0}/{1}/{2}", date.Day, date.Month, date.Year);
-      }
+      var dateString = american ? $"{date.Month}/{date.Day}/{date.Year}" : $"{date.Day}/{date.Month}/{date.Year}";
 
       return dateString;
     }

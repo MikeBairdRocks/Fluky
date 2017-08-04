@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Fluky.Types;
+﻿using Fluky.Types;
 using Shouldly;
 using Xunit;
 using Fluky.Extensions;
@@ -131,7 +130,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(',');
-      split.Count().ShouldBe(expectedCount);
+      split.Length.ShouldBe(expectedCount);
     }
 
     [Fact]
@@ -146,7 +145,7 @@ namespace Fluky.Tests
       Assert.NotNull(result);
       result.ShouldNotContain(',');
       var split = result.Split(',');
-      split.Count().ShouldBe(1);
+      split.Length.ShouldBe(1);
     }
   }
 }

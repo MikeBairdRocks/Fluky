@@ -286,7 +286,7 @@ namespace Fluky
     {
       length.GetValueOrDefault(1).ThrowIfLessThanOrEqualTo(0);
 
-      length = length.HasValue ? length.Value : Natural(5, 20);
+      length = length ?? Natural(5, 20);
       var text = "";
 
       for (var i = 0; i < length; i++)

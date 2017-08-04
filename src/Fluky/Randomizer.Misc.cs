@@ -18,7 +18,7 @@ namespace Fluky
     public int Dice(DiceType? type = null)
     {
       var diceTypes = EnumExtensions.GetEnumValues<DiceType>().ToList();
-      type = type.HasValue ? type.Value : Pick(diceTypes);
+      type = type ?? Pick(diceTypes);
 
       var max = (int)type.Value;
 
