@@ -1,8 +1,8 @@
 ![Fluky](https://raw.githubusercontent.com/michaeljbaird/Fluky/master/media/fluky.png "Fluky")
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0e1479awo8gmhrfx?svg=true)](https://ci.appveyor.com/project/michaeljbaird/fluky)
-[![NuGet](https://img.shields.io/nuget/v/Fluky.svg)]()
-[![NuGet](https://img.shields.io/nuget/dt/Fluky.svg)]()
+[![NuGet](https://img.shields.io/nuget/v/Fluky.svg)](https://www.nuget.org/packages/Fluky)
+[![NuGet](https://img.shields.io/nuget/dt/Fluky.svg)](https://www.nuget.org/packages/Fluky)
 
 Fluky - A Random Framework
 =====
