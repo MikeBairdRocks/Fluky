@@ -4,22 +4,14 @@
     <AssemblyTitle>Fluky</AssemblyTitle>
     <Authors>Michael Baird</Authors>
     <TargetFramework>netstandard1.6</TargetFramework>
-    <AssemblyName>Fluky</AssemblyName>
     <PackageId>Fluky</PackageId>
-    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git@github.com:michaeljbaird/Fluky.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/michaeljbaird/Fluky</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/michaeljbaird/Fluky/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>git@github.com:mikebairdrocks/Fluky.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/mikebairdrocks/Fluky</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/mikebairdrocks/Fluky/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageTags>fluky, random</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/michaeljbaird/Fluky/master/media/fluky-icon.png</PackageIconUrl>
-    <Version>2.0.48.0</Version>
-    <AssemblyVersion>2.0.48.0</AssemblyVersion>
-    <FileVersion>2.0.48.0</FileVersion>
+    <PackageTags>fluky random</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/mikebairdrocks/Fluky/master/media/fluky-icon.png</PackageIconUrl>
+    <Version>$(Version)</Version>
   </PropertyGroup>
 </Project>
