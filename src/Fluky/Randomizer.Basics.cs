@@ -1,4 +1,5 @@
 ﻿using System;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Fluky.Types;
 
@@ -18,9 +19,11 @@ namespace Fluky
     public bool Bool(int likelyHood = 50)
     {
       likelyHood.ThrowIfOutOfRange(0, 100);
-
-      var internalRandom = InternalRandom();
-      var nextDouble = internalRandom.NextDouble();
+      
+      double nextDouble;
+      lock (Locker.Value) {
+        nextDouble = InternalRandom.NextDouble();
+      }
 
       return nextDouble * 100 < likelyHood;
     }
@@ -68,7 +71,7 @@ namespace Fluky
       }
       else
       {
-        charPool = string.Format("{0}{1}{2}", letters, Constants.Numbers, Constants.CharSymbols);
+        charPool = $"{letters}{Constants.Numbers}{Constants.CharSymbols}";
       }
 
       var natural = Natural(max: charPool.Length - 1);
@@ -99,30 +102,6 @@ namespace Fluky
     }
 
     /// <summary>
-    /// Return a random decimal using a seed.
-    /// </summary>
-    /// <param name="seed">Seed Random internal.</param>
-    /// <param name="min">Minimum value of the range.</param>
-    /// <param name="max">Maximum value of the range.</param>
-    /// <param name="fix">Fixed precision of the decimal.</param>
-    /// <exception cref="ArgumentException">This is thrown if <paramref name="min"/> parameter is greater than the <paramref name="max"/> parameter.</exception>
-    /// <exception cref="ArgumentException">This is thrown if <paramref name="fix"/> parameter is less than the zero.</exception>
-    /// <example>
-    ///   <code language="cs">
-    ///     // this will return a decimal between -10 and 10. (ex. 8.36542)
-    ///     var number = _random.Decimal(6546513, -10, 10, 5);
-    ///   </code>
-    /// </example>
-    /// <returns>A decimal within a range.</returns>
-    public decimal DecimalWithSeed(int seed, int min = int.MinValue, int max = int.MaxValue, int fix = 4)
-    {
-      min.ThrowIfGreaterThan(max);
-      fix.ThrowIfLessThan(0);
-
-      return decimal.Parse(DecimalStringWithSeed(seed, min, max, fix));
-    }
-
-    /// <summary>
     /// Return a random decimal as a string.
     /// </summary>
     /// <param name="min">Minimum value of the range.</param>
@@ -142,7 +121,7 @@ namespace Fluky
       min.ThrowIfGreaterThan(max);
       fix.ThrowIfLessThan(0);
 
-      var next = InternalRandom().NextDecimal(min, max);
+      var next = InternalRandom.NextDecimal(min, max);
       var numFixed = next.ToFixed(fix);
 
       return numFixed;
@@ -168,34 +147,7 @@ namespace Fluky
       min.ThrowIfGreaterThan(max);
       fix.ThrowIfLessThan(0);
 
-      var next = InternalRandom().NextDecimal(decimal.Parse(min.ToString("F8")), decimal.Parse(max.ToString("F8")));
-      var numFixed = next.ToFixed(fix);
-
-      return numFixed;
-    }
-
-    /// <summary>
-    /// Return a random decimal as a string.
-    /// </summary>
-    /// <param name="seed">Seed Random internal.</param>
-    /// <param name="min">Minimum value of the range.</param>
-    /// <param name="max">Maximum value of the range.</param>
-    /// <param name="fix">Fixed precision of the decimal.</param>
-    /// <exception cref="ArgumentOutOfRangeException">This is thrown if <paramref name="min"/> parameter is greater than the <paramref name="max"/> parameter.</exception>
-    /// <exception cref="ArgumentOutOfRangeException">This is thrown if <paramref name="fix"/> parameter is less than the zero.</exception>
-    /// <example>
-    ///   <code language="cs">
-    ///     // this will return a decimal between -10 and 10. (ex. 8.36542)
-    ///     var number = _random.DecimalString(-10, 10, 5);
-    ///   </code>
-    /// </example>
-    /// <returns>A string representation of a decimal.</returns>
-    public string DecimalStringWithSeed(int seed, int min = int.MinValue, int max = int.MaxValue, int fix = 4)
-    {
-      min.ThrowIfGreaterThan(max);
-      fix.ThrowIfLessThan(0);
-
-      var next = InternalRandom(seed).NextDecimal(min, max);
+      var next = InternalRandom.NextDecimal(decimal.Parse(min.ToString("F8")), decimal.Parse(max.ToString("F8")));
       var numFixed = next.ToFixed(fix);
 
       return numFixed;
@@ -218,7 +170,7 @@ namespace Fluky
     {
       min.ThrowIfGreaterThan(max);
 
-      var intRandom = InternalRandom().Next(min, max);
+      var intRandom = InternalRandom.Next(min, max);
       return (int)Math.Floor((decimal)intRandom);
     }
 

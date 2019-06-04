@@ -1,34 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.CompilerServices;
+using System.Threading;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Random = System.Random;
 
+[assembly:InternalsVisibleTo("Fluky.Tests")]
 namespace Fluky
 {
   /// <summary>
   /// Fluky is a minimalist generator of random strings, numbers, etc. to help reduce the monotony particularly while writing automated tests or anywhere else you need anything random.
   /// </summary>
-  public partial class Randomizer : IRandomizer
+  public partial class Randomizer
   {
-    private static readonly object SyncLock = new object();
-    private static int? _seed;
-    private readonly IData _data;
-
+    internal static Lazy<object> Locker = new Lazy<object>(() => new object(), LazyThreadSafetyMode.ExecutionAndPublication);
+    private IData _data;
+    private readonly Random InternalRandom;
+    
+    /// <summary>
+    /// Set the random number generator manually with a seed to get reproducible results.
+    /// </summary>
+    public static Random Seed = new Random();
+    
     /// <summary>
     /// 
     /// </summary>
     public Randomizer()
     {
       _data = new Data();
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="data"></param>
-    public Randomizer(IData data)
-    {
-      _data = data;
+      InternalRandom = Seed;
     }
 
     /// <summary>
@@ -38,44 +40,12 @@ namespace Fluky
     public Randomizer(int seed)
     {
       _data = new Data();
-      _seed = seed;
-    }
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="seed"></param>
-    /// <param name="data"></param>
-    public Randomizer(int seed, IData data)
-    {
-      _seed = seed;
-      _data = data;
-    }
-
-    private static Random InternalRandom()
-    {
-      lock (SyncLock)
-      {
-        var seed = _seed.HasValue ? _seed.Value : System.Guid.NewGuid().GetHashCode();
-        var internalRandom = new Random(seed);
-
-        return internalRandom;
-      }
-    }
-
-    private static Random InternalRandom(int seed)
-    {
-      lock (SyncLock)
-      {
-        var internalRandom = new Random(seed);
-
-        return internalRandom;
-      }
+      InternalRandom = new Random(seed);
     }
 
     private string Capitalize(string value)
     {
-      value = string.Format("{0}{1}", value[0].ToString().ToUpper(), value.Substring(1));
+      value = $"{value[0].ToString().ToUpper()}{value.Substring(1)}";
 
       return value;
     }

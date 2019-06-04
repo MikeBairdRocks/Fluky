@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using Fluky.DataSets;
 using Fluky.Extensions;
 
 namespace Fluky
@@ -27,7 +28,7 @@ namespace Fluky
     private string Syllable(int? length = null)
     {
       length = length ?? Natural(2, 3);
-      var all = string.Format("{0}{1}", Constants.Consonants, Constants.Vowels);
+      var all = $"{Constants.Consonants}{Constants.Vowels}";
       var text = "";
       var chr = '\0';
 
@@ -69,7 +70,7 @@ namespace Fluky
       text = string.Join(" ", wordList.ToArray());
 
       // Capitalize first letter of sentence, add period at end
-      text = string.Format("{0}{1}", text.Capitalize(), '.');
+      text = $"{text.Capitalize()}{'.'}";
 
       return text;
     }

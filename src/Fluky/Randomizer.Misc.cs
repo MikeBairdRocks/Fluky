@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Fluky.Types;
 
@@ -59,15 +60,15 @@ namespace Fluky
     {
       int u;
       int s;
+      lock (Locker.Value) {
+        do {
+          // U and V are from the uniform distribution on (-1, 1)
+          u = InternalRandom.Next() * 2 - 1;
+          var v = InternalRandom.Next() * 2 - 1;
 
-      do
-      {
-        // U and V are from the uniform distribution on (-1, 1)
-        u = InternalRandom().Next() * 2 - 1;
-        var v = InternalRandom().Next() * 2 - 1;
-
-        s = u * u + v * v;
-      } while (s >= 1);
+          s = u * u + v * v;
+        } while (s >= 1);
+      }
 
       // Compute the standard normal variate
       var norm = u * Math.Sqrt(-2 * Math.Log(s) / s);
@@ -86,7 +87,7 @@ namespace Fluky
     {
       var diceTypes = EnumExtensions.GetEnumValues<DiceType>().Select(x => ((int)x).ToString(CultureInfo.InvariantCulture)).ToArray();
       var allowed = string.Join("|", diceTypes);
-      var regex = string.Format("(?<number>[1-9])(?<str>d)(?<type>({0}))", allowed);
+      var regex = $"(?<number>[1-9])(?<str>d)(?<type>({allowed}))";
       if (!Regex.IsMatch(die, regex))
         throw new ArgumentException("Die is not in the correct format. (3d20)", nameof(die));
 

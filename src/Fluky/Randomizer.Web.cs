@@ -23,23 +23,23 @@ namespace Fluky
       switch (format)
       {
         case ColorFormat.Hex:
-          colorValue = string.Format("#{0}", grayscale ? Gray(Hash(2)) : Hash(6));
+          colorValue = $"#{(grayscale ? Gray(Hash(2)) : Hash(6))}";
           break;
         case ColorFormat.ShortHex:
-          colorValue = string.Format("#{0}", grayscale ? Gray(Hash(1)) : Hash(3));
+          colorValue = $"#{(grayscale ? Gray(Hash(1)) : Hash(3))}";
           break;
         case ColorFormat.Rgb:
           if (grayscale)
           {
             var rgb = Gray(Natural(max: 255).ToString(), ",");
-            colorValue = string.Format("rgb({0})", rgb);
+            colorValue = $"rgb({rgb})";
           }
           else
           {
             var r = Natural(255);
             var g = Natural(255);
             var b = Natural(255);
-            colorValue = string.Format("rgb({0}, {1}, {2})", r, g, b);
+            colorValue = $"rgb({r}, {g}, {b})";
           }
           break;
         case ColorFormat.Rgba:
@@ -47,7 +47,7 @@ namespace Fluky
           {
             var rgb = Gray(Natural(max: 255).ToString(), ",");
             var alpha = Float(0, 1);
-            colorValue = string.Format("rgba({0}, {1})", rgb, alpha);
+            colorValue = $"rgba({rgb}, {alpha})";
           }
           else
           {
@@ -55,11 +55,11 @@ namespace Fluky
             var g = Natural(255);
             var b = Natural(255);
             var alpha = Float(0, 1);
-            colorValue = string.Format("rgba({0}, {1}, {2}, {3})", r, g, b, alpha);
+            colorValue = $"rgba({r}, {g}, {b}, {alpha})";
           }
           break;
         case ColorFormat.ConstantHex:
-          colorValue = string.Format("0x{0}", grayscale ? Gray(Hash(2)) : Hash(6));
+          colorValue = $"0x{(grayscale ? Gray(Hash(2)) : Hash(6))}";
           break;
         default:
           colorValue = string.Empty;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Fluky.Types;
 
@@ -25,7 +26,7 @@ namespace Fluky
     /// <returns>Street Address</returns>
     public string Address(bool shortStreetSuffix = true)
     {
-      return string.Format("{0} {1}", Natural(5, 2000), Street(shortStreetSuffix));
+      return $"{Natural(5, 2000)} {Street(shortStreetSuffix)}";
     }
 
     /// <summary>
@@ -45,8 +46,8 @@ namespace Fluky
     public string Areacode(bool parens = true)
     {
       // Don't want area codes to start with 1, or have a 9 as the second digit
-      var areacode = string.Format("{0}{1}{2}", Natural(2, 9), Natural(0, 8), Natural(0, 9));
-      return parens ? string.Format("({0})", areacode) : areacode;
+      var areacode = $"{Natural(2, 9)}{Natural(0, 8)}{Natural(0, 9)}";
+      return parens ? $"({areacode})" : areacode;
     }
 
     /// <summary>
@@ -80,7 +81,7 @@ namespace Fluky
     {
       fix.ThrowIfLessThan(0);
 
-      return string.Format("{0}, {1}", Latitude(fix:fix), Longitude(fix:fix));
+      return $"{Latitude(fix: fix)}, {Longitude(fix: fix)}";
     }
 
     /// <summary>
@@ -218,10 +219,10 @@ namespace Fluky
     public string Phone(bool formatted = true)
     {
       var areacode = Areacode(formatted);
-      var exchange = string.Format("{0}{1}{2}", Natural(0, 9), Natural(2, 9), Natural(0, 9));
+      var exchange = $"{Natural(0, 9)}{Natural(2, 9)}{Natural(0, 9)}";
       var subscriber = Natural(1000, 9999); // this could be random [0-9]{4}
 
-      return formatted ? string.Format("{0} {1}-{2}", areacode, exchange, subscriber) : string.Format("{0}{1}{2}", areacode, exchange, subscriber);
+      return formatted ? $"{areacode} {exchange}-{subscriber}" : $"{areacode}{exchange}{subscriber}";
     }
 
     /// <summary>
@@ -239,11 +240,11 @@ namespace Fluky
       // Postal District
       var pd = Character(pool: "XVTSRPNKLMHJGECBA");
       // Forward Sortation Area (FSA)
-      var fsa = string.Format("{0}{1}{2}", pd, Character(alpha: true, casing: CasingType.Upper), Natural(max: 9));
+      var fsa = $"{pd}{Character(alpha: true, casing: CasingType.Upper)}{Natural(max: 9)}";
       // Local Delivery Unut (LDU)
-      var ldu = string.Format("{0}{1}{2}", Natural(max: 9), Character(alpha: true, casing: CasingType.Upper), Natural(max: 9));
+      var ldu = $"{Natural(max: 9)}{Character(alpha: true, casing: CasingType.Upper)}{Natural(max: 9)}";
 
-      return string.Format("{0} {1}", fsa, ldu);
+      return $"{fsa} {ldu}";
     }
 
     /// <summary>

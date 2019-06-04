@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluky.Tests", "src\Fluky.Tests\Fluky.Tests.csproj", "{B6621D43-E103-4475-98CC-15A72933B9D9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluky", "src\Fluky\Fluky.csproj", "{8756B3F5-552F-4992-A852-79A7318DDB01}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{89057167-FA9F-4125-BA1A-819570642C1D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{1EAB226E-31AA-4CA4-AC63-22F197520FDE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{9580F9D7-6FC4-4E22-B560-CE64EE960F5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluky.Tests", "src\Fluky.Tests\Fluky.Tests.csproj", "{5B7400B8-C765-4D60-A608-8357E3810FF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{A25D9ABB-6B0B-40B4-BF16-5EEB9F55B712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,20 +19,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B6621D43-E103-4475-98CC-15A72933B9D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6621D43-E103-4475-98CC-15A72933B9D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6621D43-E103-4475-98CC-15A72933B9D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6621D43-E103-4475-98CC-15A72933B9D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A25D9ABB-6B0B-40B4-BF16-5EEB9F55B712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A25D9ABB-6B0B-40B4-BF16-5EEB9F55B712}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8756B3F5-552F-4992-A852-79A7318DDB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8756B3F5-552F-4992-A852-79A7318DDB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8756B3F5-552F-4992-A852-79A7318DDB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8756B3F5-552F-4992-A852-79A7318DDB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B7400B8-C765-4D60-A608-8357E3810FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7400B8-C765-4D60-A608-8357E3810FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7400B8-C765-4D60-A608-8357E3810FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7400B8-C765-4D60-A608-8357E3810FF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{B6621D43-E103-4475-98CC-15A72933B9D9} = {89057167-FA9F-4125-BA1A-819570642C1D}
 		{8756B3F5-552F-4992-A852-79A7318DDB01} = {89057167-FA9F-4125-BA1A-819570642C1D}
+		{5B7400B8-C765-4D60-A608-8357E3810FF0} = {89057167-FA9F-4125-BA1A-819570642C1D}
+		{A25D9ABB-6B0B-40B4-BF16-5EEB9F55B712} = {9580F9D7-6FC4-4E22-B560-CE64EE960F5B}
 	EndGlobalSection
 EndGlobal

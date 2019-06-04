@@ -8,7 +8,7 @@ namespace Fluky.Tests
 {
   public class WeightedTests
   {
-    private readonly IRandomizer _sut;
+    private readonly Randomizer _sut;
 
     public WeightedTests()
     {

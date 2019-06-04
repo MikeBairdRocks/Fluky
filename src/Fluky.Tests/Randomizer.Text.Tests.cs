@@ -6,7 +6,7 @@ namespace Fluky.Tests
 {
   public class TextTests
   {
-    private readonly IRandomizer _sut;
+    private readonly Randomizer _sut;
 
     public TextTests()
     {

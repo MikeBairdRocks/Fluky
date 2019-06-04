@@ -8,7 +8,7 @@ namespace Fluky.Tests
 {
   public class MiscTests
   {
-    private readonly IRandomizer _sut;
+    private readonly Randomizer _sut;
 
     public MiscTests()
     {

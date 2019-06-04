@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using Fluky.DataSets;
 using Fluky.Types;
 using Shouldly;
 using Xunit;
@@ -9,7 +10,7 @@ namespace Fluky.Tests
 {
   public class BasicsTests
   {
-    private readonly IRandomizer _sut;
+    private readonly Randomizer _sut;
 
     public BasicsTests()
     {

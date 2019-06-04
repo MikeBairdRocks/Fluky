@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Fluky is a framework to generate random strings, numbers, names, etc. to help reduce some of the monotony particularly while writing automated tests or anywhere else you need anything random data.</Description>
     <AssemblyTitle>Fluky</AssemblyTitle>
     <Authors>Michael Baird</Authors>
-    <TargetFramework>netstandard1.6</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Fluky</PackageId>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>git@github.com:mikebairdrocks/Fluky.git</RepositoryUrl>
@@ -14,4 +14,11 @@
     <PackageIconUrl>https://raw.githubusercontent.com/mikebairdrocks/Fluky/master/media/fluky-icon.png</PackageIconUrl>
     <Version>$(Version)</Version>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Properties" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\*.locale.bson" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
 </Project>

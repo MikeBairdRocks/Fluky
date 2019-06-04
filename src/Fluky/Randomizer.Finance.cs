@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Linq;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Fluky.Types;
 
@@ -22,7 +23,7 @@ namespace Fluky
       var number = Enumerable.Concat(card.Prefix, Integer(toGenerate, toGenerate).ToString(CultureInfo.InvariantCulture));
 
       // Generates the last digit according to Luhn algorithm
-      number = string.Format("{0}{1}", number, LuhnAlgorithm(number.ToString()));
+      number = $"{number}{LuhnAlgorithm(number.ToString())}";
 
       return number.ToString();
     }
@@ -65,12 +66,12 @@ namespace Fluky
       if (cents == null)
         dollar += ".00";
       else
-        dollar = string.Format("{0}0", dollar);
+        dollar = $"{dollar}0";
 
       if (decimal.Parse(dollar) < 0)
-        return string.Format("-${0}", dollar.Replace("-", ""));
+        return $"-${dollar.Replace("-", "")}";
 
-      return string.Format("${0}", dollar);
+      return $"${dollar}";
     }
 
     /// <summary>
@@ -93,7 +94,7 @@ namespace Fluky
         month = ExpirationMonth(false);
       }
 
-      return string.Format("{0}/{1}", month, year);
+      return $"{month}/{year}";
     }
 
     /// <summary>

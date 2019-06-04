@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Fluky.DataSets;
 
 namespace Fluky
 {
@@ -109,11 +110,11 @@ namespace Fluky
       var date = Date();
       if (american)
       {
-        dateString = string.Format("{0}/{1}/{2}", date.Month, date.Day, date.Year);
+        dateString = $"{date.Month}/{date.Day}/{date.Year}";
       }
       else
       {
-        dateString = string.Format("{0}/{1}/{2}", date.Day, date.Month, date.Year);
+        dateString = $"{date.Day}/{date.Month}/{date.Year}";
       }
 
       return dateString;

@@ -7,7 +7,7 @@ namespace Fluky.Extensions
   {
     public static string Capitalize(this string input)
     {
-      return string.IsNullOrEmpty(input) ? string.Empty : string.Format("{0}{1}", char.ToUpper(input[0]), input.Substring(1));
+      return string.IsNullOrEmpty(input) ? string.Empty : $"{char.ToUpper(input[0])}{input.Substring(1)}";
     }
 
     public static int GetDecimalLength(this string input)

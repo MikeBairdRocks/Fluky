@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Fluky.DataSets;
 using Shouldly;
 using Xunit;
-using Fluky.Extensions;
 using Fluky.Types;
+using Fluky.Extensions;
 
 namespace Fluky.Tests
 {
   public class RandomizerAddressTests
   {
-    private readonly IRandomizer _sut;
+    private readonly Randomizer _sut;
 
     public RandomizerAddressTests()
     {

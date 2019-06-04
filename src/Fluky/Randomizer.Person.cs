@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text.RegularExpressions;
+using Fluky.DataSets;
 using Fluky.Extensions;
 using Fluky.Types;
 
@@ -101,11 +102,11 @@ namespace Fluky
       string name;
 
       if (middle)
-        name = string.Format("{0} {1} {2}", firstName, FirstName(genderType), lastName);
+        name = $"{firstName} {FirstName(genderType)} {lastName}";
       else if (middleInitial)
-        name = string.Format("{0} {1}. {2}", firstName, Character(alpha: true, casing: CasingType.Upper), lastName);
+        name = $"{firstName} {Character(alpha: true, casing: CasingType.Upper)}. {lastName}";
       else
-        name = string.Format("{0} {1}", firstName, lastName);
+        name = $"{firstName} {lastName}";
 
       return name;
     }
