@@ -61,10 +61,7 @@ namespace Fluky
     public string FirstName(GenderType genderType = GenderType.Any)
     {
       var firstNames = _data.FirstNames.ToList();
-      if (genderType != GenderType.Any)
-        return Pick(firstNames.Where(x => x.GenderType == genderType).ToList()).Name;
-
-      return Pick(firstNames).Name;
+      return genderType != GenderType.Any ? Pick(firstNames.Where(x => x.GenderType == genderType).ToList()).Name : Pick(firstNames).Name;
     }
 
     /// <summary>

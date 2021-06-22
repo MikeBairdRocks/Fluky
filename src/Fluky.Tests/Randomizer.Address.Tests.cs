@@ -58,7 +58,7 @@ namespace Fluky.Tests
 
       // Assert
       Assert.NotNull(result);
-      Assert.True(result.Contains("("));
+      result.ShouldContain("(");
       Assert.Equal(5, result.Length);
     }
 
@@ -72,7 +72,7 @@ namespace Fluky.Tests
 
       // Assert
       Assert.NotNull(result);
-      Assert.True(!result.Contains("("));
+      result.ShouldNotContain("(");
       Assert.Equal(3, result.Length);
     }
 
@@ -197,7 +197,6 @@ namespace Fluky.Tests
       var depth = _sut.Depth();
 
       // Assert
-      Assert.NotNull(depth);
       depth.ShouldBeInRange(Constants.MinDepth, Constants.MaxDepth);
     }
 
@@ -219,7 +218,6 @@ namespace Fluky.Tests
       var depth = _sut.Depth(fix: expectedFixed);
 
       // Assert
-      Assert.NotNull(depth);
       var value = depth.ToString("");
       var length = value.GetDecimalLength();
       length.ShouldBe(expectedFixed);
@@ -264,7 +262,7 @@ namespace Fluky.Tests
       Assert.NotNull(result);
       result.Length.ShouldBe(7);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
     }
 
     [Fact]
@@ -292,7 +290,7 @@ namespace Fluky.Tests
       Assert.NotNull(result);
       result.Length.ShouldBe(10);
       var split = result.Split('-');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
     }
 
     [Fact]
@@ -337,7 +335,7 @@ namespace Fluky.Tests
     public void RadioAndTv_ShouldStartWithKorW()
     {
       // Arrange
-      var elementPredicate = new[] { 'K', 'W' };
+      var elementPredicate = new[] {'K', 'W'};
 
       // Act
       var radio = _sut.Radio();
@@ -354,7 +352,7 @@ namespace Fluky.Tests
     public void RadioAndTv_ShouldStartWithK()
     {
       // Arrange
-      var elementPredicate = new[] { 'K' };
+      var elementPredicate = new[] {'K'};
 
       // Act
       var radio = _sut.Radio(SideType.West);
@@ -371,7 +369,7 @@ namespace Fluky.Tests
     public void RadioAndTv_ShouldStartWithW()
     {
       // Arrange
-      var elementPredicate = new[] { 'W' };
+      var elementPredicate = new[] {'W'};
 
       // Act
       var radio = _sut.Radio(SideType.East);
@@ -421,7 +419,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
       split[1].Length.ShouldBeLessThanOrEqualTo(4);
     }
 
@@ -436,7 +434,7 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(' ');
-      split.Count().ShouldBe(2);
+      split.Length.ShouldBe(2);
       split[1].Length.ShouldBeGreaterThanOrEqualTo(3);
     }
   }

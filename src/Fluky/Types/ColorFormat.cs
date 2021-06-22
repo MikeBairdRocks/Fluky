@@ -1,5 +1,8 @@
 ﻿namespace Fluky.Types
 {
+  /// <summary>
+  /// 
+  /// </summary>
   public enum ColorFormat
   {
     /// <summary>

@@ -2,8 +2,16 @@
 
 namespace Fluky.Extensions
 {
+  /// <summary>
+  /// 
+  /// </summary>
   public static class DoubleExtensions
   {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
     public static float ToFloat(this double value)
     {
       var result = Convert.ToSingle(value);

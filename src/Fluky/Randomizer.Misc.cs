@@ -19,9 +19,9 @@ namespace Fluky
     public int Dice(DiceType? type = null)
     {
       var diceTypes = EnumExtensions.GetEnumValues<DiceType>().ToList();
-      type = type.HasValue ? type.Value : Pick(diceTypes);
+      type ??= Pick(diceTypes);
 
-      var max = (int)type.Value;
+      var max = (int) type.Value;
 
       return Natural(1, max);
     }
@@ -60,8 +60,10 @@ namespace Fluky
     {
       int u;
       int s;
-      lock (Locker.Value) {
-        do {
+      lock (Locker.Value)
+      {
+        do
+        {
           // U and V are from the uniform distribution on (-1, 1)
           u = InternalRandom.Next() * 2 - 1;
           var v = InternalRandom.Next() * 2 - 1;
@@ -85,7 +87,7 @@ namespace Fluky
     /// <returns></returns>
     public string Rpg(string die, bool sum = false)
     {
-      var diceTypes = EnumExtensions.GetEnumValues<DiceType>().Select(x => ((int)x).ToString(CultureInfo.InvariantCulture)).ToArray();
+      var diceTypes = EnumExtensions.GetEnumValues<DiceType>().Select(x => ((int) x).ToString(CultureInfo.InvariantCulture)).ToArray();
       var allowed = string.Join("|", diceTypes);
       var regex = $"(?<number>[1-9])(?<str>d)(?<type>({allowed}))";
       if (!Regex.IsMatch(die, regex))
@@ -93,7 +95,7 @@ namespace Fluky
 
       var split = die.Split('d');
       var number = int.Parse(split[0]);
-      var dieType = (DiceType)Enum.Parse(typeof(DiceType), split[1]);
+      var dieType = (DiceType) Enum.Parse(typeof(DiceType), split[1]);
 
       var list = new List<int>();
       for (var i = 0; i < number; i++)
@@ -102,10 +104,7 @@ namespace Fluky
         list.Add(roll);
       }
 
-      if (sum)
-        return list.Sum(x => x).ToString(CultureInfo.InvariantCulture);
-
-      return string.Join(",", list.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
+      return sum ? list.Sum(x => x).ToString(CultureInfo.InvariantCulture) : string.Join(",", list.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
     }
   }
 }

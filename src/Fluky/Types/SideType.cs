@@ -2,6 +2,9 @@
 
 namespace Fluky.Types
 {
+  /// <summary>
+  /// 
+  /// </summary>
   [Flags]
   public enum SideType
   {

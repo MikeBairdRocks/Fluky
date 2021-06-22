@@ -28,7 +28,7 @@ namespace Fluky.Tests
         list.Add(player);
       }
 
-      // Runnigbacks
+      // Running backs
       for (var i = 0; i < 20; i++)
       {
         var player = GeneratePlayer(10, 20, "Runningback");
@@ -55,16 +55,16 @@ namespace Fluky.Tests
 
       // Assert
       var quarterBacks = results.Where(x => x.PlayerType == "Quarterback").ToList();
-      var runnigBacks = results.Where(x => x.PlayerType == "Runningback").ToList();
+      var runningBacks = results.Where(x => x.PlayerType == "Runningback").ToList();
       var kickers = results.Where(x => x.PlayerType == "Kicker").ToList();
-      quarterBacks.Count().ShouldBeGreaterThanOrEqualTo(runnigBacks.Count());
-      runnigBacks.Count().ShouldBeGreaterThanOrEqualTo(kickers.Count());
+      quarterBacks.Count.ShouldBeGreaterThanOrEqualTo(runningBacks.Count);
+      runningBacks.Count.ShouldBeGreaterThanOrEqualTo(kickers.Count);
 
-      var topTenQuarterbacks = quarterBacks.Count(x => x.Position <= 10);
-      var topTenRunningbacks = runnigBacks.Count(x => x.Position <= 10);
+      var topTenQuarterBacks = quarterBacks.Count(x => x.Position <= 10);
+      var topTenRunningBacks = runningBacks.Count(x => x.Position <= 10);
       var topTenKickers = kickers.Count(x => x.Position <= 10);
-      topTenQuarterbacks.ShouldBeGreaterThan(topTenRunningbacks);
-      topTenRunningbacks.ShouldBeGreaterThanOrEqualTo(topTenKickers);
+      topTenQuarterBacks.ShouldBeGreaterThan(topTenRunningBacks);
+      topTenRunningBacks.ShouldBeGreaterThanOrEqualTo(topTenKickers);
     }
 
     private Player GeneratePlayer(int minWeight, int maxWeight, string type)

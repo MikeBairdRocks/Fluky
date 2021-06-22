@@ -74,7 +74,7 @@ namespace Fluky
     /// <returns></returns>
     public int Timestamp()
     {
-      var max = (int)(DateTime.Now.TimeOfDay.TotalMinutes / 1000);
+      var max = (int) (DateTime.Now.TimeOfDay.TotalMinutes / 1000);
       return Natural(1, max);
     }
 
@@ -85,7 +85,7 @@ namespace Fluky
     /// <returns></returns>
     public DateTime Date(int? minYear = null)
     {
-      minYear = minYear ?? 1900;
+      minYear ??= 1900;
       var year = Year(minYear.Value);
       var month = Month();
       var day = Natural(1, DateTime.DaysInMonth(year, month.Numeric));
@@ -106,16 +106,8 @@ namespace Fluky
     /// <returns></returns>
     public string Date(bool american)
     {
-      string dateString;
       var date = Date();
-      if (american)
-      {
-        dateString = $"{date.Month}/{date.Day}/{date.Year}";
-      }
-      else
-      {
-        dateString = $"{date.Day}/{date.Month}/{date.Year}";
-      }
+      var dateString = american ? $"{date.Month}/{date.Day}/{date.Year}" : $"{date.Day}/{date.Month}/{date.Year}";
 
       return dateString;
     }
@@ -148,14 +140,14 @@ namespace Fluky
     /// <returns></returns>
     public int Year(int min, int? max = null)
     {
-      max = max ?? DateTime.Now.Year;
+      max ??= DateTime.Now.Year;
 
       return Natural(min, max.Value);
     }
 
-    private List<Month> Months()
+    private static List<Month> Months()
     {
-      return new List<Month>
+      return new()
       {
         new Month("January", "Jan", 1),
         new Month("February", "Feb", 2),

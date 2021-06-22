@@ -14,7 +14,7 @@ namespace Fluky
     /// <returns></returns>
     public string Paragraph(int? sentences = null)
     {
-      sentences = sentences.HasValue ? sentences.Value : Natural(3, 7);
+      sentences ??= Natural(3, 7);
       var sentenceList = new List<string>();
 
       for (var i = 0; i < sentences; i++)
@@ -27,7 +27,7 @@ namespace Fluky
 
     private string Syllable(int? length = null)
     {
-      length = length ?? Natural(2, 3);
+      length ??= Natural(2, 3);
       var all = $"{Constants.Consonants}{Constants.Vowels}";
       var text = "";
       var chr = '\0';
@@ -59,7 +59,7 @@ namespace Fluky
 
     private string Sentence(int? words = null)
     {
-      words = words.HasValue ? words : Natural(12, 18);
+      words ??= Natural(12, 18);
       var wordList = new List<string>();
       var text = "";
       for (var i = 0; i < words; i++)
@@ -77,7 +77,7 @@ namespace Fluky
 
     private string Word(int? length = null, int? syllables = null)
     {
-      syllables = syllables.HasValue ? syllables : Natural(1, 3);
+      syllables ??= Natural(1, 3);
       var text = "";
 
       if (length.HasValue)
@@ -87,7 +87,7 @@ namespace Fluky
         {
           text += Syllable();
         } while (text.Length < length.Value);
-        text = text.Substring(0, length.Value);
+        text = text[..length.Value];
       }
       else
       {

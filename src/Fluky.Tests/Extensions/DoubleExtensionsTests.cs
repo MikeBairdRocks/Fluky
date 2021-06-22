@@ -7,28 +7,22 @@ namespace Fluky.Tests.Extensions
   public class DoubleExtensionsTests
   {
     [Theory]
-    [InlineData(1, 1)]
-    [InlineData(1, 2)]
-    [InlineData(1, 3)]
-    [InlineData(1, 10)]
-    [InlineData(1, 11)]
-    [InlineData(1, 12)]
-    [InlineData(100123.7234, 1)]
-    [InlineData(100123.773456, 2)]
-    [InlineData(100123.123456, 3)]
-    [InlineData(100123.123456, 10)]
-    [InlineData(100123.123456, 11)]
-    [InlineData(100123.123456, 12)]
-    public void ToFixed_SetCorrectPositions(double value, int fix)
+    [InlineData(100123.7234, 100123.7234f)]
+    [InlineData(200.555, 200.555f)]
+    [InlineData(800.123456, 800.123456f)]
+    [InlineData(-800.123456, -800.123456f)]
+    [InlineData(900.987654, 900.987654f)]
+    [InlineData(double.MaxValue + 1, float.MaxValue + 1)]
+    [InlineData(double.MinValue - 1, float.MinValue - 1)]
+    public void ToFloat_ShouldConvertCorrectly(double value, float fix)
     {
       // Arrange
 
       // Act
-      var result = value.ToFixed(fix);
+      var result = value.ToFloat();
 
       // Assert
-      var length = result.GetDecimalLength();
-      length.ShouldBe(fix);
+      result.ShouldBe(fix);
     }
   }
 }

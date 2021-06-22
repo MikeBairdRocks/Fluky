@@ -20,9 +20,9 @@ namespace Fluky.Extensions
       if (!input.Contains(".") && !input.Contains(","))
         return decimalLength;
 
-      var separator = new char[] { '.', ',' };
-      var tempstring = input.Split(separator);
-      decimalLength = tempstring[1].Length;
+      var separator = new[] { '.', ',' };
+      var tempString = input.Split(separator);
+      decimalLength = tempString[1].Length;
 
       return decimalLength;
     }

@@ -132,8 +132,6 @@ namespace Fluky.Tests
       var result2 = _sut.Decimal(min, max, fix);
 
       // Assert
-      Assert.NotNull(result1);
-      Assert.NotNull(result2);
       result1.ShouldNotBe(result2);
     }
 
@@ -146,7 +144,6 @@ namespace Fluky.Tests
       var result = _sut.Decimal();
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(int.MinValue, int.MaxValue);
     }
 
@@ -161,7 +158,6 @@ namespace Fluky.Tests
       var result = _sut.Decimal(min, max);
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 
@@ -177,7 +173,6 @@ namespace Fluky.Tests
       var result = _sut.Decimal(min, max, fix);
 
       // Assert
-      Assert.NotNull(result);
       result.ToString(CultureInfo.InvariantCulture).GetDecimalLength().ShouldBe(fix);
    }
 
@@ -224,7 +219,6 @@ namespace Fluky.Tests
       var result = _sut.Integer(min, max);
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 
@@ -239,7 +233,6 @@ namespace Fluky.Tests
       var result = _sut.Natural(min, max);
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(min, max);
     }
 

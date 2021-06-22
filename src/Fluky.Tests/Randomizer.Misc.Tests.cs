@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Fluky.Types;
 using Shouldly;
 using Xunit;
@@ -24,7 +25,6 @@ namespace Fluky.Tests
       var result = _sut.Dice();
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(1, 100);
     }
 
@@ -45,7 +45,6 @@ namespace Fluky.Tests
       var result = _sut.Dice(type);
 
       // Assert
-      Assert.NotNull(result);
       result.ShouldBeInRange(expectedMin, expectedMax);
     }
 
@@ -121,7 +120,7 @@ namespace Fluky.Tests
     [InlineData("4d20", 4)]
     [InlineData("5d20", 5)]
     [InlineData("6d20", 6)]
-    public void Rpg_ShouldReturnCorrectCommaDelimted(string dice, int expectedCount)
+    public void Rpg_ShouldReturnCorrectCommaDelimited(string dice, int expectedCount)
     {
       // Arrange
 
@@ -131,7 +130,20 @@ namespace Fluky.Tests
       // Assert
       Assert.NotNull(result);
       var split = result.Split(',');
-      split.Count().ShouldBe(expectedCount);
+      split.Length.ShouldBe(expectedCount);
+    }
+
+    [Fact]
+    public void Rpg_InvalidInput_ShouldThrowException()
+    {
+      // Arrange
+      const string invalidInput = "4x20";
+
+      // Act
+
+      // Assert
+      var exception = Assert.Throws<ArgumentException>(() => _sut.Rpg(invalidInput));
+      Assert.Equal("Die is not in the correct format. (3d20) (Parameter 'die')", exception.Message);
     }
 
     [Fact]

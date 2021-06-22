@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using Fluky.DataSets;
 using Fluky.Extensions;
 using Random = System.Random;
 
-[assembly:InternalsVisibleTo("Fluky.Tests")]
 namespace Fluky
 {
   /// <summary>
@@ -15,14 +13,14 @@ namespace Fluky
   /// </summary>
   public partial class Randomizer
   {
-    internal static Lazy<object> Locker = new Lazy<object>(() => new object(), LazyThreadSafetyMode.ExecutionAndPublication);
+    private static readonly Lazy<object> Locker = new(() => new object(), LazyThreadSafetyMode.ExecutionAndPublication);
     private IData _data;
     private readonly Random InternalRandom;
     
     /// <summary>
     /// Set the random number generator manually with a seed to get reproducible results.
     /// </summary>
-    public static Random Seed = new Random();
+    public static Random Seed = new();
     
     /// <summary>
     /// 

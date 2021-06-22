@@ -191,6 +191,13 @@ namespace Fluky
       return float.Parse(DecimalString(min, max, fix));
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <param name="fix"></param>
+    /// <returns></returns>
     public float Float(float min = float.MinValue, float max = float.MaxValue, int fix = 4)
     {
       min.ThrowIfGreaterThan(max);

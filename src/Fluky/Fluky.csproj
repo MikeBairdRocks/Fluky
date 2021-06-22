@@ -1,24 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Fluky is a framework to generate random strings, numbers, names, etc. to help reduce some of the monotony particularly while writing automated tests or anywhere else you need anything random data.</Description>
-    <AssemblyTitle>Fluky</AssemblyTitle>
-    <Authors>Michael Baird</Authors>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Fluky</PackageId>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>git@github.com:mikebairdrocks/Fluky.git</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/mikebairdrocks/Fluky</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/mikebairdrocks/Fluky/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageTags>fluky random</PackageTags>
-    <PackageIconUrl>https://raw.githubusercontent.com/mikebairdrocks/Fluky/master/media/fluky-icon.png</PackageIconUrl>
-    <Version>$(Version)</Version>
+    <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="Properties" />
-  </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Data\*.locale.bson" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <InternalsVisibleTo Include="Fluky.Tests" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Data\*.locale.json" />
   </ItemGroup>
 </Project>

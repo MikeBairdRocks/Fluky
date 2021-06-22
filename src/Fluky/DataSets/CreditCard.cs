@@ -31,10 +31,29 @@ namespace Fluky.DataSets
       Length = length;
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public string Name { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public string ShortName { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public CreditCardType Type { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public string Prefix { get; set; }
+    
+    /// <summary>
+    /// 
+    /// </summary>
     public int Length { get; set; }
   }
 }

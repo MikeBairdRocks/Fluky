@@ -1,0 +1,15 @@
+<Project>
+  <ItemGroup Label="Embed icon">
+    <EmbeddedFiles Include="$(GeneratedAssemblyInfoFile)" />
+    <None Include="$(SolutionDir)/media/fluky-icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <Target Name="AddInternalsVisibleTo" BeforeTargets="BeforeCompile">
+    <!-- Handle InternalsVisibleTo -->
+    <ItemGroup Condition="'@(InternalsVisibleTo->Count())' &gt; 0">
+      <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+        <_Parameter1>%(InternalsVisibleTo.Identity)</_Parameter1>
+      </AssemblyAttribute>
+    </ItemGroup>
+  </Target>
+</Project>

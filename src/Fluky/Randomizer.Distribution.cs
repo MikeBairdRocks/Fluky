@@ -6,6 +6,12 @@ namespace Fluky
 {
   public partial class Randomizer
   {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="mean"></param>
+    /// <param name="standardDeviation"></param>
+    /// <returns></returns>
     public float DistributionNormal(float mean, float standardDeviation)
     {
       // Get random normal from Standard Normal Distribution
@@ -22,6 +28,10 @@ namespace Fluky
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     public float DistributionStandardNormal()
     {
       // This code follows the polar form of the muller transform:
@@ -55,11 +65,25 @@ namespace Fluky
     // Sloped Distribution
     //--------------------------------------------------------------------------------------------
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <param name="skew"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     public float DistributionRangeSlope(float min, float max, float skew, DistributionDirection direction)
     {
       return min + DistributionSloped(skew, direction) * (max - min);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="skew"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     public float DistributionSloped(float skew, DistributionDirection direction)
     {
       // the difference in scale is just the same as the max y-value..
@@ -87,6 +111,13 @@ namespace Fluky
     //--------------------------------------------------------------------------------------------
 
     // Returns random in range [min, max] with linear distribution of given slope.
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <param name="slope"></param>
+    /// <returns></returns>
     public float DistributionRangeLinear(float min, float max, float slope)
     {
       var val = DistributionRandomLinear(slope);
@@ -95,6 +126,11 @@ namespace Fluky
     }
 
     // Returns random in range [0,1] with linear distribution of given slope.
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="slope"></param>
+    /// <returns></returns>
     public float DistributionRandomLinear(float slope)
     {
       var absValue = DistributionLinearWithPositiveSlope(Math.Abs(slope));
@@ -127,11 +163,25 @@ namespace Fluky
     // Exponential Distribution
     //--------------------------------------------------------------------------------------------
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="min"></param>
+    /// <param name="max"></param>
+    /// <param name="exponent"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     public float DistributionExponentialRange(float min, float max, float exponent, DistributionDirection direction)
     {
       return min + DistributionExponential(exponent, direction) * (max - min);
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="exponent"></param>
+    /// <param name="direction"></param>
+    /// <returns></returns>
     public float DistributionExponential(float exponent, DistributionDirection direction)
     {
       // our curve will go from 0 to 1.
@@ -173,7 +223,7 @@ namespace Fluky
     /// <summary>
     /// The inverse of the sec^2 function.
     /// </summary>
-    /// <param name="y">The y coordinate. if y < 1, returns NaN. </param>
+    /// <param name="y">The y coordinate. (if y < 1, returns NaN)</param>
     private float Inverse_Sec_Sqrd(float y)
     {
       // Note: arcsec(x) = arccos(1/x)
